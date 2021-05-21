@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './shared/components/home/home.component';
 
 const routes: Routes = [
   {path:'book', loadChildren: () => import('./core/features/book/book.module').then(m => m.BookModule)},
+  {path:'',component:HomeComponent}
   // {path:'student', loadChildren: () => import('./features/student/student.module').then(m => m.StudentModule)},
   // {path:'professor', loadChildren: () => import('./features/professor/professor.module').then(m => m.ProfessorModule)},
   // {path:'examPeriod', loadChildren: () => import('./features/exam-period/exam-period.module').then(m => m.ExamPeriodModule)},

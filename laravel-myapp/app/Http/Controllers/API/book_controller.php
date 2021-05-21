@@ -16,7 +16,7 @@ class book_controller extends Controller
      */
     public function index()
     {
-        return Book::all()->load('category');
+        return Book::with('category')->get();
     }
 
     /**
@@ -27,6 +27,7 @@ class book_controller extends Controller
      */
     public function store(Request $request)
     {
+
         return Book::create($request->all());
     }
 
@@ -38,7 +39,7 @@ class book_controller extends Controller
      */
     public function show($id)
     {
-        return Book::where('id', $id)->get();
+        return Book::with('category')->where('id', $id)->first();
     }
 
     /**
@@ -50,8 +51,8 @@ class book_controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $book = Book::find($id);
-        $book->update($request-all());
+        $book = Book::with('category')->find($id);
+        $book->update($request->all());
         return $book;
     }
 

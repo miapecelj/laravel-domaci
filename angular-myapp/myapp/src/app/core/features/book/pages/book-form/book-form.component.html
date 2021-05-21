@@ -1,0 +1,43 @@
+
+<div *ngIf="addedBook" class="alert alert-success" role="alert" >
+  Book saved!
+</div>
+<form *ngIf="bookForm" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="m-auto w-50 p-4 border border-primary rounded">
+    <h3>Book</h3>
+  <a routerLink="/book">Back to list</a>
+    <div class="mb-3 d-flex flex-column">
+      <label for="name" class="form-label">Name</label>
+      <input id="name" class="form-control" formControlName="name" />
+
+
+    </div>
+
+    <div class="mb-3 d-flex flex-column">
+      <label for="writer" class="form-label">Writer</label>
+      <input id="writer" class="form-control" formControlName="writer"/>
+
+    </div>
+
+     <div class="mb-3 d-flex flex-column">
+      <label for="category_id" class="form-label">Category</label>
+      <select id="category_id" class="form-select" formControlName="category_id">
+        <option>Please select category</option>
+        <option *ngFor="let category of categories" [ngValue]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+
+    </div>
+
+    <hr />
+
+    <div class="d-flex flex-row mt-2">
+      <button class="btn btn-outline-success"  type="submit">
+        Save book
+      </button>
+    </div>
+  </div>
+</form>
+
+

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\book_controller;
+use App\Http\Controllers\API\category_controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,4 @@ Route::get('/book', [book_controller::class, 'index']);
 Route::post('/book', [book_controller::class, 'store']);
 Route::put('/book/{id}', [book_controller::class, 'update']);
 Route::delete('/book/{id}', [book_controller::class, 'destroy']);
+Route::get('/category', [category_controller::class, 'index']);

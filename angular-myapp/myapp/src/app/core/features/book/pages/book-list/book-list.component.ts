@@ -45,6 +45,7 @@ export class BookListComponent implements OnInit {
   deleteSelectedBook(book: Book) {
     this.httpBookService.delete(book).subscribe(response => {
       this.loadBooks();
+      alert("Book is deleted!")
     })
   }
 

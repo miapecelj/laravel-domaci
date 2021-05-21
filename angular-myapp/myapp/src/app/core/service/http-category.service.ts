@@ -8,23 +8,24 @@ import { Category } from '../models/category.model';
   providedIn: 'root'
 })
 export class HttpCategoryService {
+  controlPrefix="category";
 
   constructor(private httpClient:HttpClient) { }
   getAll() {
-    return this.httpClient.get<Category[]>(`${environment.baseHttpURL}`)
+    return this.httpClient.get<Category[]>(`${environment.baseHttpURL}/${this.controlPrefix}`)
   }
 
   delete(category:Category):Observable<Category>{
-    return this.httpClient.delete<Category>(`${environment.baseHttpURL}/${category.id}`);
+    return this.httpClient.delete<Category>(`${environment.baseHttpURL}/${this.controlPrefix}/${category.id}`);
   }
   post(category:Category):Observable<Category>{
-    return this.httpClient.post<Category>(`${environment.baseHttpURL}`,category);
+    return this.httpClient.post<Category>(`${environment.baseHttpURL}/${this.controlPrefix}`,category);
   }
   findById(id: number): Observable<Category> {
-    return this.httpClient.get<Category>(`${environment.baseHttpURL}/${id}`);
+    return this.httpClient.get<Category>(`${environment.baseHttpURL}/${this.controlPrefix}/${id}`);
   }
   edit(category:Category):Observable<Category>{
-    return this.httpClient.put<Category>(`${environment.baseHttpURL}`,category);
+    return this.httpClient.put<Category>(`${environment.baseHttpURL}/${this.controlPrefix}`,category);
   }
 
 }

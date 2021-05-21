@@ -1,8 +1,10 @@
-
 body{
-  background-image: url("../assets/books.jpg");
+  background-image: url("../../../../assets/books.jpg");
   height:100vw;
   color:maroon;
   display: flex;
   justify-content: center;
+}
+h1{
+  font-size: 8em;
 }

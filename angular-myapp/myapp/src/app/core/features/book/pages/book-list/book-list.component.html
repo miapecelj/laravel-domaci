@@ -14,11 +14,12 @@
     <td>{{i+1}}</td>
     <td>{{ book?.name }}</td>
     <td>{{ book?.writer}}</td>
-    <td>{{book.category.name}}</td>
+    <td>{{book?.category?.name}}</td>
 
-    <td><button type="button" class="btn btn-primary" [routerLink]="['../book-details', book.id]" >Details</button>
+    <!-- <td><button type="button" class="btn btn-primary" [routerLink]="['../book-details', book.id]" >Details</button> -->
+      <td>
       <button type="button" class="btn btn-primary" [routerLink]="['../book-form', book.id]" >Edit</button>
-      <button (click)="onDeleteClick(exam)"  type="button" class="btn btn-danger">Delete</button></td>
+      <button (click)="onDeleteClick(book)"  type="button" class="btn btn-danger">Delete</button></td>
   </tr>
   </tbody>
 </table>

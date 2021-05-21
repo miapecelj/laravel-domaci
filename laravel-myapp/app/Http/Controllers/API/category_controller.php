@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class category_controller extends Controller
 {
@@ -14,7 +15,7 @@ class category_controller extends Controller
      */
     public function index()
     {
-        //
+        return Category::get();
     }
 
     /**
