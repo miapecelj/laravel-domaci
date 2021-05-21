@@ -1,0 +1,25 @@
+<button type="button" class="btn btn-primary" [routerLink]="['../book-form']" >Add book</button>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Book</th>
+    <th scope="col">Writer</th>
+    <th scope="col">Category</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books; let i=index">
+    <td>{{i+1}}</td>
+    <td>{{ book?.name }}</td>
+    <td>{{ book?.writer}}</td>
+    <td>{{book.category.name}}</td>
+
+    <td><button type="button" class="btn btn-primary" [routerLink]="['../book-details', book.id]" >Details</button>
+      <button type="button" class="btn btn-primary" [routerLink]="['../book-form', book.id]" >Edit</button>
+      <button (click)="onDeleteClick(exam)"  type="button" class="btn btn-danger">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
+

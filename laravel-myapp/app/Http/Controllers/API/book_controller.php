@@ -16,7 +16,7 @@ class book_controller extends Controller
      */
     public function index()
     {
-        return Book::all();
+        return Book::all()->load('category');
     }
 
     /**

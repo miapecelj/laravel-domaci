@@ -20,11 +20,8 @@ class CreateBooksTable extends Migration
             $table->string('writer');
             $table->string('url');
 
-            //$table->index('category_id');
-            $table->foreignId('category_id')
-            ->constrained()
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            $table->index('category_id');
+
 
 
             $table->timestamps();
